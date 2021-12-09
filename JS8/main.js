@@ -104,17 +104,48 @@
 // console.log(arr);
 // console.log(arr2);
 
-let arr = [
-    {name: "Suzanne"}, 
-    {name: "Jim"}, 
-    {name: "Trevor"}, 
-    {name: "Amanda"},
-];
+// let arr = [
+//     {name: "Suzanne"}, 
+//     {name: "Jim"}, 
+//     {name: "Trevor"}, 
+//     {name: "Amanda"},
+// ];
 
-console.log(arr);
-arr.sort((a, b) => a.name > b.name ? 1 : (a.name === b.name ? 0 : -1));
-console.log("----------");
-console.log(arr);
-arr.sort((a, b) => a.name[1] < b.name[1] ? 1 : (a.name[1] === b.name[1] ? 0 : -1));
-console.log("------------");
-console.log(arr);
+// console.log(arr);
+// arr.sort((a, b) => a.name > b.name ? 1 : (a.name === b.name ? 0 : -1));
+// console.log("----------");
+// console.log(arr);
+// arr.sort((a, b) => a.name[1] < b.name[1] ? 1 : (a.name[1] === b.name[1] ? 0 : -1));
+// console.log("------------");
+// console.log(arr);
+
+// const o = {name: "ジェリー"};
+// const arr = [1, 5, "a", o, true, 5, [1, 2], "9"];
+
+// console.log(arr.indexOf(5));
+// console.log(arr.lastIndexOf(5));
+// console.log((arr.indexOf("a")));
+// console.log(arr.indexOf({name: "ジェリー"}));
+// console.log(arr.indexOf(o));
+// console.log(arr.indexOf([1, 2]));
+// console.log(arr.indexOf("9"));
+// console.log(arr.indexOf(9));
+// console.log(arr.indexOf("a" , 5));
+// console.log(arr.indexOf(5, 5));
+// console.log(arr.lastIndexOf(5, 4));
+// console.log(arr.lastIndexOf(true, 3));
+
+// const arr = [{id: 5, name: "Taro"}, {id: 7, name: "Hanako"}];
+// console.log(arr.findIndex(o => o.id === 5));
+// console.log(arr.findIndex(o => o.name === "Hanako"));
+// console.log(arr.findIndex(o => o === 3));
+// console.log(arr.findIndex(o => o.id === 17));
+// console.log(arr.findIndex(o => o.id === 7));
+
+// console.log(arr.find(o => o.id === 5));
+// console.log(arr.find(o => o.id === 2));
+
+const arr = [1, 17, 16, 5, 4, 16, 10, 3, 49];
+console.log(arr.find((x, i) => i > 2 && Number.isInteger(Math.sqrt(x))));
+
+console.log(arr.find((x, i) => i > 5 && Number.isInteger(Math.sqrt(x))));
