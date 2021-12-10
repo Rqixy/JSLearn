@@ -145,7 +145,103 @@
 // console.log(arr.find(o => o.id === 5));
 // console.log(arr.find(o => o.id === 2));
 
-const arr = [1, 17, 16, 5, 4, 16, 10, 3, 49];
-console.log(arr.find((x, i) => i > 2 && Number.isInteger(Math.sqrt(x))));
+// const arr = [1, 17, 16, 5, 4, 16, 10, 3, 49];
+// console.log(arr.find((x, i) => i > 2 && Number.isInteger(Math.sqrt(x))));
 
-console.log(arr.find((x, i) => i > 5 && Number.isInteger(Math.sqrt(x))));
+// console.log(arr.find((x, i) => i > 5 && Number.isInteger(Math.sqrt(x))));
+
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//         this.id = Person.nextId++;
+//     }
+// }
+// Person.nextId = 0;
+// const Ichiro = new Person("Ichiro"),
+//       Jiro = new Person("Jiro"),
+//       Saburo = new Person("Saburo"),
+//       Shiro = new Person("Shiro");
+
+// const arr = [Ichiro, Jiro, Saburo, Shiro];
+
+// console.log(arr.find(p => p.id === Saburo.id));
+// console.log(arr.find(function(p) { return p.id === Saburo.id}));
+// console.log(arr.find((p => p.id === this.id, Saburo)));
+
+// const arr = [5, 7, 12, 15, 17];
+// console.log(arr.some(x => x%2===0));
+
+// const arr = [4, 6, 16, 36];
+// console.log(arr.every(x => x%2===0));
+
+// const cart = [{name: "iPhone", price: 54800}, {name: "Android", price: 49800}];
+// const names = cart.map(x => x.name);
+// console.log(names);
+
+// const prices = cart.map(x => x.price);
+// console.log(prices);
+
+// const discountPrices = prices.map(x => x*0.8);
+// console.log(discountPrices);
+
+// const lcNames = names.map(x => x.toLowerCase());
+// console.log(lcNames);
+
+// console.log(cart);
+
+// const items = ["iPhone", "Android"];
+// const prices = [54800, 49800];
+// const cart = items.map((x, i) => ({name: x, price: prices[i]}));
+// console.log(cart);
+
+// const cards = [];
+// const marks = ['Heart', 'Clover', 'Diamond', 'Spade'];
+// for(let mark of marks){
+//     for (let num=1 ; num<=13; num++){
+//         cards.push({mark, num});
+//     }
+// }
+
+// let chooseCard = cards.filter(card => card.num === 2);
+// console.log(chooseCard);
+
+
+
+// function changeMark(card) {
+//     const mark_emoji = { 'Heart': '♡', 'Clover': '♧', 'Dia': '♢', 'Spade': '♤' };
+//     const numToAJOK = {1: 'A', 11: 'J', 12: 'Q', 13:'K'};
+//     for(let i=2; i<=10; i++){
+//         numToAJOK[i] = i;
+//     }
+//     return mark_emoji[card.mark]+numToAJOK[card.num];
+// }
+
+// const cards = [];
+// const marks = ['Heart', 'Clover', 'Dia', 'Spade'];
+// for(let mark of marks){
+//     for(let num=1; num<=13; num++){
+//         cards.push({mark, num});
+//     }
+// }
+
+// let chooseCard_mark = cards.filter(card => card.num === 2).map(changeMark);
+// // console.log(chooseCard_mark);
+
+// // chooseCard_mark = cards.filter(card => card.mark === "Dia").map(changeMark);
+// // console.log(chooseCard_mark);
+
+// // chooseCard_mark = cards.filter(card => card.num > 10).map(changeMark);
+// // console.log(chooseCard_mark);
+
+// // chooseCard_mark = cards.filter(card => card.num > 10 && card.mark ==='Heart').map(changeMark);
+// // console.log(chooseCard_mark);
+
+// chooseCard_mark = cards.filter(card => card.num%2 === 0 && (card.mark === 'Heart' || card.mark === 'Dia')).map(changeMark);
+// console.log(chooseCard_mark)
+
+// const arr = [5, 7, 2, 4];
+// const sum = arr.reduce((a, x) => a += x, 4);
+// console.log(sum);
+
+// const sum2 = arr.reduce((a, x) => a +=x, 0);
+// console.log(sum2);
