@@ -56,38 +56,125 @@
 // console.log(car2 instanceof Car);
 // console.log(car1 instanceof Array);
 
-class Car {
-    constructor(make, model) {
-        this.make = make;
-        this.model = model;
-        this._userGears = ['P', 'N', 'R', 'D'];
-        this._userGear = this._userGears[0];
-    }
+// class Car {
+//     constructor(make, model) {
+//         this.make = make;
+//         this.model = model;
+//         this._userGears = ['P', 'N', 'R', 'D'];
+//         this._userGear = this._userGears[0];
+//     }
 
-    get userGear() { return this._userGear; }
-    set userGear(value) {
-        if(this._userGears.indexOf(value) < 0 ){
-            throw new Error(`ギア指定が正しくない: ${value}`);
+//     get userGear() { return this._userGear; }
+//     set userGear(value) {
+//         if(this._userGears.indexOf(value) < 0 ){
+//             throw new Error(`ギア指定が正しくない: ${value}`);
+//         }
+//         this._userGear = value;
+//     }
+
+//     shift(gear) { this.userGear = gear; }
+
+// }
+
+// const car1 = new Car("Tesla", "Model S");
+// const car2 = new Car("Mazda", "3i");
+
+// console.log(car1);
+// console.log(car2);
+
+// car1.shift('D');
+// car2.shift('R');
+
+// console.log(car1.userGear);
+// console.log(car2.userGear);
+
+// car1.userGear = "R";
+
+// console.log(car1.userGear);
+
+const Car = (function() {
+    const carProps = new WeakMap();
+
+    class Car {
+        constructor(make, model) {
+            this.make = make;
+            this.model = model;
+            this._userGears = ['P', 'N', 'R', 'D'];
+            carProps.set(this, { userGear: this._userGears[0] });
         }
-        this._userGear = value;
+
+        get userGear() { return carProps.get(this).userGear; }
+        set userGear(value) {
+            if(this._userGears.indexOf(value) < 0) {
+                throw new Error(`ギア指定が正しくない : ${value}`);
+            }
+            carProps.get(this).userGear = value;
+        }
+
+        shift(gear) { this.userGear = gear; }
     }
 
-    shift(gear) { this.userGear = gear; }
+    return Car;
+})();
+//
+// const car1 = new Car("Tesla", "Model S");
+// const car2 = new Car("Mazda", "3i");
+// console.log(car1);
+// console.log(car2);
+//
+// car1.shift('D');
+// car2.shift('R');
+//
+// console.log(car1.userGear);
+// console.log(car2.userGear);
 
-}
+// function Car(make, model) {
+//     this.make = make;
+//     this.model = model;
+//     this._userGears = ['P', 'N', 'R', 'D'];
+//     this._userGear = this._userGears[0];
+// }
 
-const car1 = new Car("Tesla", "Model S");
-const car2 = new Car("Mazda", "3i");
+// class Es2015Car {
+//     constructor(make, model) {
+//         this.make = make;
+//         this.model = model;
+//         this._userGears = ['P', 'N', 'R', 'D'];
+//         this._userGear = this._userGears[0];
+//     }
+//
+//     get userGear() { return this._userGear; }
+//     set userGear(value) {
+//         if(this._userGears.indexOf(value) < 0) {
+//             throw new Error(`ギア指定が正しくない : ${value}`);
+//         }
+//         this._userGear = value
+//     }
+//
+//     shift(gear) { this.userGear = gear; }
+// }
+//
+// function EsCar(make, model) {
+//     this.make = make;
+//     this.model = model;
+//     this._userGears = ['P', 'N', 'R', 'D'];
+//     this._userGear = this.userGears[0];
+// }
+//
+// console.log(typeof Es2015Car);
+// console.log(typeof EsCar);
 
-console.log(car1);
-console.log(car2);
 
+const car1 = new Car();
+const car2 = new Car();
+console.log(car1.shift === Car.prototype.shift);
+console.log(car1.shift === car2.shift);
 car1.shift('D');
-car2.shift('R');
-
+// car1.shift('d');
 console.log(car1.userGear);
-console.log(car2.userGear);
 
-car1.userGear = "R";
-
+car1.shift = function(gear) { this.userGear = gear.toUpperCase(); }
+console.log(car1.shift === Car.prototype.shift);
+console.log(car1.shift === car2.shift);
+car1.shift('d');
 console.log(car1.userGear);
