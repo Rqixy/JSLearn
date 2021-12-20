@@ -139,3 +139,93 @@
 //     }, (5 - i) * 1000);
 // }
 
+// function addThreeSquareAddFiveTakeSquareRoot(x) {
+//     return Math.sqrt(Math.pow(x + 3, 2) + 5);
+// }
+
+// const answer1 = (addThreeSquareAddFiveTakeSquareRoot(5) + addThreeSquareAddFiveTakeSquareRoot(2)) / addThreeSquareAddFiveTakeSquareRoot(7);
+// console.log(answer1);
+
+// const f = addThreeSquareAddFiveTakeSquareRoot;
+// const answer2 = (f(5) + f(2)) / f(7);
+// console.log(answer2);
+
+// const Money = require('math-money');
+// const oneDollar = Money.Dollar(1);
+// const Dollar = Money.Dollar;
+// const twoDollar = Dollar(2);
+
+// const sin = Math.sin;
+// const cos = Math.cos;
+// const theta = Math.PI/4;
+// const zoom = 2;
+// const offset = [1, -3];
+
+// const pipeline = [
+//     function rotate(p) {
+//         return {
+//             x: p.x * cos(theta) - p.y * sin(theta),
+//             y: p.x * sin(theta) + p.y * cos(theta),
+//         };
+//     },
+
+//     function scale(p) {
+//         return {
+//             x: p.x * zoom,
+//             y: p.y * zoom,
+//         };
+//     },
+
+//     function translate(p) {
+//         return { 
+//             x: p.x + offset[0],
+//             y: p.y + offset[1],
+//         };
+//     },
+// ];
+
+// const p = {x: 1, y: 1};
+// console.log(p);
+// let p2 = p;
+// for(let i = 0; i < pipeline.length; i++) {
+//     p2 = pipeline[i](p2);
+//     console.log(p2);
+// }
+
+// function sum(arr, f) {
+//     if(typeof f != 'function') f = x => x;
+
+//     return arr.reduce((a, x) => a += f(x), 0);
+// }
+
+// console.log(sum([1, 2, 3]));
+// console.log(sum([1, 2, 3], x => x * x));
+// console.log(sum([1, 2, 3], x => Math.pow(x, 3)));
+
+// function newSummer(f) {
+//     return arr => sum(arr, f);
+// }
+
+// const sumOfSquares = newSummer(x => x*x);
+// const sumOfCubes = newSummer(x => Math.pow(x, 3));
+
+// console.log(sumOfSquares([1, 2, 3]));
+// console.log(sumOfCubes([1, 2, 3]));
+
+// function findNeedle(haystack) {
+//     if(haystack.length === 0) return "針山は無くなった";
+//     if(haystack.shift() === '針') return "針が見つかった！";
+//     console.log(haystack);
+//     return findNeedle(haystack);
+// }
+
+// console.log(findNeedle(['薔', '薔', '薔', '薔', '針', '薔', '薔']));
+
+function fact(n) {
+    if(n === 1) return 1;
+    return n * fact(n - 1);
+}
+
+console.log(fact(4));
+console.log(fact(5));
+console.log(fact(8));
