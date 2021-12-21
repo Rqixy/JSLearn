@@ -221,11 +221,11 @@
 
 // console.log(findNeedle(['薔', '薔', '薔', '薔', '針', '薔', '薔']));
 
-function fact(n) {
-    if(n === 1) return 1;
-    return n * fact(n - 1);
-}
+// function fact(n) {
+//     if(n === 1) return 1;
+//     return n * fact(n - 1);
+// }
 
-console.log(fact(4));
-console.log(fact(5));
-console.log(fact(8));
+// console.log(fact(4));
+// console.log(fact(5));
+// console.log(fact(8));
