@@ -252,3 +252,63 @@
 // const end2 = input2.match(/[^。]+。$/);
 // console.log(end2[0]);
 
+// const input = "One line\nTwo lines\nThree lines\n Four";
+// const beginnings = input.match(/^\w+/mg);
+// console.log(beginnings);
+// const endings = input.match(/\w+$/mg);
+// console.log(endings);
+
+// const input2 = "あの頃が最高だったな～。\nあの頃は最悪でもあったな～。\n" + "あいつは元気かな～。";
+// const beginning2 = input2.match(/^.*?[はが]/mg);
+// console.log(beginning2);
+
+// const inputs = [
+//     "john@doe.com",
+//     "john@doe.com is my email",
+//     "my email is john@doe.com",
+//     "use john@doe.com, my email",
+//     "my email:john@doe.com.",
+// ];
+
+// const emailMatcher = /\b[a-z][a-z0-9._-]*@[a-z][a-z0-9_-]+\.[a-z]+(?:\.[a-z]+)?\b/ig;
+// const r = inputs.map(s => s.replace(emailMatcher, '<a href="mailto:$&">$&</a>'));
+// console.log(r);
+
+// function validPassword(p) {
+//     return /[A-Z]/.test(p) && /[0-9]/.test(p) && /[a-z]/.test(p) && !/[^a-zA-Z0-9]/.test(p);
+// }
+// console.log(validPassword("aiueo"));
+// console.log(validPassword("3aiuEo"));
+// console.log(validPassword("traveLer2"));
+// console.log(validPassword("日本語3ab"));
+// console.log(validPassword("Pocke3"));
+// console.log(validPassword("Pocke3"));
+
+//XXX
+// function validPassword(p) {
+//     return /[A-Z].*[0-9].*[a-z]/.test(p);
+// }
+
+// function validPassword(p) {
+//     return /(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])^[a-zA-Z0-9]+$/.test(p);
+// }
+// console.log(validPassword("aiueo"));
+// console.log(validPassword("3aiuEo"));
+// console.log(validPassword("traveLer2"));
+// console.log(validPassword("日本語3ab"));
+// console.log(validPassword("Pocke3"));
+// console.log(validPassword("Pocke3"));
+
+const users = ["mary", "nick", "arthur", "sam", "yvette"];
+const userRegex = new RegExp(`@(?:${users.join('|')})\\b`, 'g');
+console.log(userRegex);
+
+const text = "User @arthur started the backup and 15:15, " + "and @nick and @yvette restored it at 18:35.";
+console.log(text.match(userRegex));
+
+const users2 = ["浦島太郎", "一寸法師", "桃太郎", "金太郎", "かぐや姫"];
+const userRegex2 = new RegExp(`(?:${users2.join('|')})`, 'g');
+console.log(userRegex2);
+
+const text2 = "浦島太郎がバックアップ開始(15:15)\n" + "かぐや姫と金太郎がリストア(18:35)\n";
+console.log(text2.match(userRegex2));
